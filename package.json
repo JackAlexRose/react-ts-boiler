@@ -20,10 +20,11 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
     "eject": "react-scripts eject",
     "lint": "eslint . --ext .tsx",
-    "lint-and-fix": "eslint . --ext .tsx --fix"
+    "lint-and-fix": "eslint . --ext .tsx --fix",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
@@ -44,9 +45,15 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.16.8",
+    "@babel/preset-typescript": "^7.16.7",
     "@typescript-eslint/eslint-plugin": "^5.14.0",
     "@typescript-eslint/parser": "^5.14.0",
     "eslint": "^8.11.0",
-    "eslint-plugin-no-loops": "^0.3.0"
+    "eslint-plugin-no-loops": "^0.3.0",
+    "husky": "^7.0.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^27.5.1",
+    "ts-jest": "^27.1.3"
   }
 }
