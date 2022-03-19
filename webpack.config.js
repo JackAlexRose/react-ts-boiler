@@ -6,12 +6,12 @@ const path = require('path');
 module.exports = {
   mode: 'development',
   entry: {
-    main: path.resolve(__dirname, './src/index.tsx')
+    main: path.resolve(__dirname, './src/index.tsx'),
   },
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: '[name].bundle.js',
-    publicPath: '/'
+    publicPath: '/',
   },
   devtool: 'inline-source-map',
   module: {
@@ -22,8 +22,8 @@ module.exports = {
         loader: 'esbuild-loader',
         options: {
           loader: 'jsx',
-          target: 'es2015'
-        }
+          target: 'es2015',
+        },
       },
       {
         test: /\.(ts|tsx)$/,
@@ -31,37 +31,38 @@ module.exports = {
         loader: 'esbuild-loader',
         options: {
           loader: 'tsx',
-          target: 'es2015'
-        }
+          target: 'es2015',
+        },
       },
       {
         test: /\.css$/,
         use: [
-          'style-loader',
-          'css-loader',
+          { loader: 'style-loader' },
+          { loader: 'css-modules-typescript-loader' },
+          { loader: 'css-loader', options: { modules: true } },
           {
             loader: 'esbuild-loader',
             options: {
               loader: 'css',
-              minify: true
-            }
-          }
-        ]
-      }
-    ]
+              minify: true,
+            },
+          },
+        ],
+      },
+    ],
   },
   resolve: {
     extensions: ['*', '.js', '.jsx', '.ts', '.tsx', '.css'],
-    alias: {}
+    alias: {},
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, './src/index.html')
+      template: path.resolve(__dirname, './src/index.html'),
     }),
     new ProvidePlugin({
-      React: 'react'
+      React: 'react',
     }),
-    new Dotenv()
+    new Dotenv(),
   ],
   devServer: {
     static: path.resolve(__dirname, './dist'),
@@ -69,6 +70,6 @@ module.exports = {
     open: true,
     compress: true,
     hot: true,
-    port: 4000
-  }
+    port: 4000,
+  },
 };

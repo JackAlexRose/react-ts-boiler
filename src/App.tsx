@@ -1,10 +1,10 @@
 import React from 'react';
-import './App.css';
+import styles from './App.css';
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">Lets Build</header>
+    <div className={styles.app}>
+      <header className={styles.appHeader}>Lets Build</header>
     </div>
   );
 };
