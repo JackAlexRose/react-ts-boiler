@@ -7,13 +7,11 @@ module.exports = {
       diagnostics: false,
     },
   },
-  setupFilesAfterEnv: [
-    "<rootDir>/setupTests.js"
-  ],
+  setupFilesAfterEnv: ['<rootDir>/setupTests.js'],
   moduleNameMapper: {
-    "\\.(css|less)$": "identity-obj-proxy"
+    '\\.(css|less)$': 'identity-obj-proxy',
   },
   transform: {
     '^.+\\.(js|jsx|ts|tsx)$': 'ts-jest',
   },
-}
+};
