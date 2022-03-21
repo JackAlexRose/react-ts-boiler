@@ -4,6 +4,6 @@ import App from './App';
 
 test('renders Lets Build text', () => {
   render(<App />);
-  const linkElement = screen.getByText(/Lets Build/i);
+  const linkElement = screen.getByRole("heading", { name: 'Test Element' });
   expect(linkElement).toBeInTheDocument();
 });
